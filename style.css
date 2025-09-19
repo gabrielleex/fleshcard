@@ -1,125 +1,80 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards Interativos</title>
-    <style>
-        :root {
-            --text-color: #DBE4EF;
-            --card-front-color: #144480;
-            --card-back-color: #00F4BF;
-        }
-        body {
-            background: url('flashcard-imagens/img/bg-desktop.webp');
-            font-family: Bai Jamjuree;
-            margin: 0;
-            padding: 0;
-        }
-        #container {
+:root {
+    --text-color: #DBE4EF;
+    --card-front-color: #144480;
+    --card-back-color: #00F4BF;
+}
+body {
+    background: url('flashcard-imagens/img/bg-desktop.webp');
+    font-family: Bai Jamjuree;
+}
+#container {
     display: flex;
      flex-wrap: wrap;
-        }
-        .cartao {
-            margin: 1rem;
-            height: 20rem;
-            width: 15rem;
-            perspective: 1000px; /* Dando perspectiva para o 3D */
-        }
-        .cartao__conteudo {
-            background-color: var(--card-front-color);
-            text-align: center;
-            height: 100%;
-            width: 100%;
-            transform-style: preserve-3d;
-            transition: transform 300ms ease-in-out;
-            position: relative;
-            border-radius: 1rem;
-        }
-        .cartao__conteudo h3 {
-            color: var(--text-color);
-            border: 1px solid var(--text-color);
-            text-align: left;
-            padding: 0.5rem;
-            position: absolute;
-            margin: 0.6rem;
-            border-radius: 0.6rem;
-            font-size: 1vw;
-            backface-visibility: hidden;
-        }
-        .cartao__conteudo p {
-            margin-top: 4rem;
-            padding: 2rem;
-        }
-        .cartao__conteudo__pergunta,
-        .cartao__conteudo__resposta {
-            backface-visibility: hidden;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-        }
-        .cartao__conteudo__resposta {
-            transform: rotateY(180deg);
-        }
-        .cartao__conteudo__pergunta p {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        .cartao__conteudo__resposta p {
-            color: var(--card-back-color);
-            font-weight: 700;
-        }
-        footer {
-            background-color: black;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 0.6rem;
-            padding: 1rem 0;
-        }
-        footer p {
-            margin: 0;
-        }
-        .cartao:hover .cartao__conteudo {
-            transform: rotateY(180deg);
-        }
-    </style>
-</head>
-<body>
-
-<div id="container">
-    <div class="cartao">
-        <div class="cartao__conteudo">
-            <div class="cartao__conteudo__pergunta">
-                <h3>Pergunta</h3>
-                <p>O que é a propriedade 'transform' no CSS?</p>
-            </div>
-            <div class="cartao__conteudo__resposta">
-                <h3>Resposta</h3>
-                <p>Modifica a posição, rotação e escala de elementos.</p>
-            </div>
-        </div>
-    </div>
-    <div class="cartao">
-        <div class="cartao__conteudo">
-            <div class="cartao__conteudo__pergunta">
-                <h3>Pergunta</h3>
-                <p>Qual é a função do 'backface-visibility'?</p>
-            </div>
-            <div class="cartao__conteudo__resposta">
-                <h3>Resposta</h3>
-                <p>Controla a visibilidade do lado oposto de um elemento em transformações.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Você pode adicionar mais cards aqui -->
-</div>
-
-<footer>
-    <p>&copy; 2025 Flashcards Interativos - Criado com amor.</p>
-</footer>
-
-</body>
-</html>
+}
+.cartao {
+    margin: 1rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+}
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+.cartao__conteudo h3 {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.cartao__conteudo__resposta p {
+    color: var(--card-back-color);
+    font-weight: 700;
+}
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    width: 100%;
+}
+footer p {
+    text-align: center;
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+}
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+ .cartao__conteudo {
+    transform: rotateY(180deg);
+}
